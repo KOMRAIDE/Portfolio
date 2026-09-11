@@ -358,6 +358,217 @@
 
         }
 
+
+        /* =====================================
+           RESPONSIVE LAYOUT SAFETY
+        ===================================== */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        section,
+        footer {
+            scroll-margin-top: 5rem;
+        }
+
+        .portrait-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 767px) {
+
+            header nav {
+                min-height: 4.5rem;
+            }
+
+            #home {
+                min-height: auto;
+                padding-top: 7.5rem;
+                padding-bottom: 5rem;
+            }
+
+            .hero-name {
+                font-size: clamp(3rem, 15vw, 5rem);
+                line-height: 0.94;
+                overflow-wrap: anywhere;
+            }
+
+            #home .hero-reveal:first-child {
+                flex-wrap: wrap;
+                row-gap: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            #home .hero-reveal:first-child span:last-child {
+                font-size: 0.7rem;
+                letter-spacing: 0.12em;
+                text-align: center;
+            }
+
+            #home p {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+
+            #home .hero-delay-3 a,
+            #contact .btn {
+                width: min(100%, 22rem);
+                justify-content: center;
+            }
+
+            #home .hero-delay-4 {
+                margin-top: 3rem;
+            }
+
+            #home .relative.w-36 {
+                width: 9rem;
+                height: 9rem;
+            }
+
+            .marquee-track {
+                animation-duration: 18s;
+            }
+
+            #about,
+            #skills,
+            #contact {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+
+            #about h2,
+            #skills h2,
+            #work h2,
+            #contact h2,
+            main > section:not(#home) h2 {
+                font-size: clamp(2.25rem, 11vw, 3.5rem);
+                line-height: 1.05;
+                overflow-wrap: anywhere;
+            }
+
+            #work {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+
+            #work > div > div:first-child {
+                margin-bottom: 2.25rem;
+            }
+
+            #work .project-visual {
+                min-height: 14rem;
+                padding: 3rem 1rem;
+            }
+
+            #work .project-visual::before {
+                width: 12rem;
+                height: 12rem;
+                right: -5rem;
+                top: -5rem;
+            }
+
+            #work .project-visual h3 {
+                font-size: clamp(2.5rem, 14vw, 4rem);
+            }
+
+            #work article > div:last-child {
+                padding: 1.5rem;
+            }
+
+            #work .project-card,
+            #work .grid article,
+            #skills .skill,
+            #contact > div > div {
+                border-radius: 1.5rem;
+            }
+
+            #work .grid article {
+                padding: 1.5rem;
+            }
+
+            #skills .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.625rem;
+            }
+
+            #skills .skill {
+                min-height: 4.5rem;
+                padding: 1rem 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-wrap: anywhere;
+                font-size: 0.875rem;
+            }
+
+            #journey {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+
+            #journey .grid {
+                margin-top: 2.5rem;
+            }
+
+            #journey .grid > div {
+                padding: 1.5rem;
+            }
+
+            #contact > div > div {
+                padding: 4rem 1.5rem;
+            }
+
+            #contact > div > div > div:first-child {
+                width: 10rem;
+                height: 10rem;
+                right: -5rem;
+                top: -5rem;
+            }
+
+            #contact > div > div > div:nth-child(2) {
+                width: 12rem;
+                height: 12rem;
+                left: -6rem;
+                bottom: -6rem;
+            }
+
+            footer .max-w-5xl {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                text-align: center;
+            }
+
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            .hero-name {
+                font-size: clamp(5rem, 11vw, 7rem);
+            }
+
+            #home,
+            #about,
+            #skills,
+            #contact,
+            #work,
+            #journey {
+                padding-top: 7rem;
+                padding-bottom: 7rem;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -558,7 +769,7 @@
             >
 
                 <div
-                    class="relative w-36 h-36 sm:w-58 sm:h-58"
+                    class="relative w-36 h-36 sm:w-56 sm:h-56"
                 >
 
                     <!-- Replace this entire div's inner content
@@ -568,11 +779,11 @@
                         class="w-full h-full rounded-[2rem] bg-lavender flex items-center justify-center overflow-hidden border-4 border-white shadow-xl"
                     >
 
-                        <span
-                            class="text-sm font-medium text-ink"
+                        <img
+                            class="portrait-image"
+                            src="profile-pic.jpeg"
+                            alt="Portrait of Samuel Puwu Aduwamai"
                         >
-                    <img src="profile-pic.jpeg" alt="Profile Picture">
-                        </span>
 
                     </div>
 
@@ -1068,6 +1279,7 @@
 ================================================== -->
 
 <section
+    id="journey"
     class="px-6 py-32 bg-lavender"
 >
 
